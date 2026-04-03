@@ -5,55 +5,198 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Data Analytics Portfolio</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f7f9fc;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
       color: #1f2937;
     }
+
     .container {
-      max-width: 1000px;
+      max-width: 1150px;
       margin: 0 auto;
-      padding: 48px 20px;
+      padding: 40px 20px 60px;
     }
+
     .hero {
+      background: linear-gradient(135deg, #ffffff, #eef4ff);
+      padding: 70px 30px;
+      border-radius: 24px;
       text-align: center;
-      padding: 48px 20px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: 48px;
+      color: #0f172a;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: 0 auto 24px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: #475569;
+    }
+
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: #dbeafe;
+      color: #1d4ed8;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .section-title {
+      font-size: 34px;
+      margin: 10px 0 24px;
+      color: #0f172a;
+    }
+
+    .featured {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
       background: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      margin-bottom: 32px;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+      margin-bottom: 40px;
+      align-items: center;
     }
-    h1, h2, h3 {
+
+    .featured img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .featured h3 {
       margin-top: 0;
+      font-size: 30px;
     }
+
+    .featured p {
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .insights {
+      padding-left: 20px;
+      color: #334155;
+      line-height: 1.8;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      gap: 24px;
+      margin-bottom: 40px;
     }
+
     .card {
       background: white;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    img {
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 26px;
+    }
+
+    .card p {
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .card img {
       width: 100%;
-      border-radius: 12px;
-      margin-top: 12px;
+      border-radius: 14px;
+      margin: 14px 0 16px;
     }
-    a.button {
+
+    .btn {
       display: inline-block;
-      margin-top: 14px;
-      padding: 10px 16px;
+      margin-top: 10px;
+      padding: 12px 18px;
       background: #2563eb;
       color: white;
       text-decoration: none;
-      border-radius: 10px;
+      border-radius: 12px;
+      font-weight: bold;
     }
-    ul {
-      padding-left: 18px;
+
+    .btn:hover {
+      background: #1d4ed8;
+    }
+
+    .about,
+    .contact {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      margin-bottom: 28px;
+    }
+
+    .about p,
+    .contact p {
+      color: #475569;
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 14px;
+      margin-top: 12px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer {
+      text-align: center;
+      color: #64748b;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .featured {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
@@ -61,42 +204,81 @@
   <div class="container">
     <section class="hero">
       <h1>Hi, I'm a Data Analyst</h1>
-      <p>I turn raw, messy data into clean dashboards, insights, and business decisions.</p>
-    </section>
-
-    <section>
-      <h2>Portfolio Overview</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Excel Projects</h3>
-          <p>Sales dashboards, KPI tracking, and business reporting in Excel.</p>
-          <img src="excel-projects/sales-dashboard/dashboard1.png" alt="Excel dashboard preview">
-          <a class="button" href="excel-projects/">View Excel Projects</a>
-        </div>
-
-        <div class="card">
-          <h3>Power BI Projects</h3>
-          <p>Interactive dashboards and visual reporting projects.</p>
-          <a class="button" href="powerbi-projects/">View Power BI Projects</a>
-        </div>
-
-        <div class="card">
-          <h3>SQL Projects</h3>
-          <p>Querying, cleaning, and analyzing business data.</p>
-          <a class="button" href="sql-projects/">View SQL Projects</a>
-        </div>
+      <p>
+        I turn raw, messy data into clean dashboards, actionable insights, and business-friendly reports that support smarter decisions.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">Excel</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">Tableau</span>
+        <span class="tag">Dashboard Design</span>
       </div>
     </section>
 
-    <section style="margin-top:32px;">
-      <h2>Tools & Skills</h2>
-      <ul>
-        <li>Excel</li>
-        <li>SQL</li>
-        <li>Power BI</li>
-        <li>Tableau</li>
-      </ul>
+    <h2 class="section-title">Featured Project</h2>
+    <section class="featured">
+      <div>
+        <img src="excel-projects/sales-dashboard/dashboard1.png" alt="Sales Dashboard Preview">
+      </div>
+      <div>
+        <h3>Sales Dashboard in Excel</h3>
+        <p>
+          A visual Excel dashboard built to analyze sales performance, highlight top-performing products, track customer contribution, and identify profit trends across segments.
+        </p>
+        <ul class="insights">
+          <li>Identified the top 5 most profitable products</li>
+          <li>Highlighted key customer contribution patterns</li>
+          <li>Showed profit trends by age group and time period</li>
+        </ul>
+        <a class="btn" href="excel-projects/sales-dashboard/">View Full Project</a>
+      </div>
     </section>
+
+    <h2 class="section-title">Portfolio Overview</h2>
+    <section class="grid">
+      <div class="card">
+        <h3>Excel Projects</h3>
+        <p>Sales dashboards, KPI tracking, and business reporting in Excel.</p>
+        <img src="excel-projects/sales-dashboard/dashboard1.png" alt="Excel Dashboard">
+        <a class="btn" href="excel-projects/">View Excel Projects</a>
+      </div>
+
+      <div class="card">
+        <h3>Power BI Projects</h3>
+        <p>Interactive dashboards and visual reporting projects built for decision-making.</p>
+        <a class="btn" href="powerbi-projects/">View Power BI Projects</a>
+      </div>
+
+      <div class="card">
+        <h3>SQL Projects</h3>
+        <p>Data cleaning, querying, and analysis projects focused on business insight generation.</p>
+        <a class="btn" href="sql-projects/">View SQL Projects</a>
+      </div>
+    </section>
+
+    <section class="about">
+      <h2>About Me</h2>
+      <p>
+        I build analytics projects that make data easier to understand and easier to use. My portfolio focuses on dashboards, reporting, and data analysis with tools like Excel, SQL, Power BI, and Tableau.
+      </p>
+    </section>
+
+    <section class="contact">
+      <h2>Let’s Connect</h2>
+      <p>
+        I’m open to data analytics opportunities, freelance work, and collaborations.
+      </p>
+      <div class="links">
+        <a href="https://github.com/lkristarr">GitHub</a>
+        <a href="https://www.linkedin.com/">LinkedIn</a>
+        <a href="mailto:your@email.com">Email</a>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 2026 My Data Analytics Portfolio
+    </div>
   </div>
 </body>
 </html>
