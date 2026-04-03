@@ -1,23 +1,18 @@
-# my-data-analytics-portfolio
+# Data Analytics Portfolio
 
+Welcome to my portfolio. Below are my projects organized by tools.
 
-Welcome to my data analytics portfolio. This repository showcases dashboards and analytics projects I built using Excel, SQL, Power BI, and Tableau.
+## 📊 Excel Projects
+- Sales Dashboard  
+  → [View Project](excel-projects/sales-dashboard)
 
-## Featured Project
+## 📈 Power BI Projects
+- Sales Dashboard  
+  → [View Project](powerbi-projects/sales-dashboard)
 
-### Dashboard Project
-This dashboard was created to analyze key business metrics and turn raw data into clear, actionable insights.
+## 🧠 SQL Projects
+- Data Cleaning & Analysis  
+  → [View Queries](sql-projects)
 
-## Tools Used
-- Excel
-- SQL
-- Power BI
-- Tableau
-
-## Dashboard Previews
-
-![Dashboard Screenshot 1](Screenshot%20(1).png)
-![Dashboard Screenshot 2](Screenshot%20(2).png)
-
-## About Me
-I am a data analyst passionate about transforming messy data into clear reports, dashboards, and business insights.
+## 🛠 Tools Used
+Excel | SQL | Power BI | Tableau
