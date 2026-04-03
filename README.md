@@ -13,35 +13,35 @@ Explore my projects below by tool.
 
 ## 📊 Excel Projects
 
-### Sales Dashboard
-![Excel Dashboard](Screenshot%20(1).png)
+### 🧾 Sales Dashboard
 
-🔹 Built using Excel  
-🔹 Focus: Sales trends, KPIs, product performance  
+![Dashboard Preview](excel-projects/sales-dashboard/dashboard1.png)
+![Dashboard Preview](excel-projects/sales-dashboard/dashboard2.png)
 
-👉 [View Excel Projects](excel-projects)
+🔹 **Tool:** Excel  
+🔹 **Focus:** Sales trends, KPIs, product performance  
+
+📁 [Open Project Folder](excel-projects/sales-dashboard)  
+📄 [Read Project Details](excel-projects/sales-dashboard/README.md)
 
 ---
 
 ## 📈 Power BI Projects
 
-### Sales Performance Dashboard
-![Power BI Dashboard](Screenshot%20(2).png)
+🔹 Interactive dashboards  
+🔹 Business intelligence reporting  
 
-🔹 Built using Power BI  
-🔹 Focus: Interactive dashboards and insights  
-
-👉 [View Power BI Projects](powerbi-projects)
+📁 [View Power BI Projects](powerbi-projects)
 
 ---
 
 ## 🧠 SQL Projects
 
 🔹 Data cleaning  
-🔹 Data analysis  
-🔹 Business queries  
+🔹 Data querying  
+🔹 Business insights  
 
-👉 [View SQL Projects](sql-projects)
+📁 [View SQL Projects](sql-projects)
 
 ---
 
@@ -56,7 +56,7 @@ Explore my projects below by tool.
 
 ## 💡 About Me
 
-I’m passionate about transforming data into clear, actionable insights that drive decisions.
+I am a data analyst passionate about transforming messy data into clear, actionable insights that drive real business decisions.
 
 ---
 
