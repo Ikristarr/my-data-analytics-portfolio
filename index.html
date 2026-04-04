@@ -3,199 +3,421 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Data Analytics Portfolio</title>
+  <title>Churchill | Data Analytics Portfolio</title>
   <style>
     * {
       box-sizing: border-box;
     }
 
+    :root {
+      --bg: #0b1020;
+      --bg-secondary: #121a2f;
+      --panel: #11182b;
+      --panel-2: #18233d;
+      --text: #f8fafc;
+      --muted: #b6c2d9;
+      --soft: #94a3b8;
+      --border: rgba(148, 163, 184, 0.16);
+      --primary: #60a5fa;
+      --primary-dark: #3b82f6;
+      --accent: #8b5cf6;
+      --accent-2: #22c55e;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --shadow-hover: 0 24px 60px rgba(0, 0, 0, 0.42);
+      --radius: 24px;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #1f2937;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(139, 92, 246, 0.12), transparent 28%),
+        radial-gradient(circle at bottom center, rgba(34, 197, 94, 0.08), transparent 30%),
+        var(--bg);
     }
 
     .container {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 40px 20px 60px;
+      padding: 36px 20px 70px;
     }
 
     .hero {
-      background: linear-gradient(135deg, #ffffff, #eef4ff);
-      padding: 70px 30px;
-      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(17, 24, 43, 0.96), rgba(24, 35, 61, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 72px 40px;
+      box-shadow: var(--shadow);
       text-align: center;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(12px);
+      opacity: 0.45;
+    }
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      background: rgba(96, 165, 250, 0.18);
+      top: -90px;
+      left: -70px;
+    }
+
+    .hero::after {
+      width: 260px;
+      height: 260px;
+      background: rgba(139, 92, 246, 0.16);
+      bottom: -110px;
+      right: -80px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(96, 165, 250, 0.14);
+      border: 1px solid rgba(96, 165, 250, 0.22);
+      color: #bfdbfe;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
-      margin: 0 0 16px;
-      font-size: 48px;
-      color: #0f172a;
+      font-size: 54px;
+      line-height: 1.08;
+      margin: 0 auto 18px;
+      max-width: 900px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 .highlight {
+      color: var(--primary);
     }
 
     .hero p {
-      max-width: 750px;
-      margin: 0 auto 24px;
+      max-width: 860px;
+      margin: 0 auto;
       font-size: 20px;
-      line-height: 1.7;
-      color: #475569;
+      line-height: 1.8;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
     }
 
-    .hero-tags {
+    .hero-actions {
+      margin-top: 28px;
       display: flex;
       justify-content: center;
+      gap: 14px;
       flex-wrap: wrap;
-      gap: 10px;
+      position: relative;
+      z-index: 1;
     }
 
-    .tag {
-      background: #dbeafe;
-      color: #1d4ed8;
-      padding: 8px 14px;
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-dark), var(--accent));
+      color: white;
+      box-shadow: 0 12px 24px rgba(59, 130, 246, 0.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .proof-bar {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .proof-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 14px;
       border-radius: 999px;
       font-size: 14px;
       font-weight: bold;
     }
 
+    .section {
+      margin-top: 56px;
+    }
+
     .section-title {
       font-size: 34px;
-      margin: 10px 0 24px;
-      color: #0f172a;
+      margin: 0 0 10px;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+      max-width: 780px;
+      margin: 0 0 26px;
     }
 
     .featured {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1.15fr 1fr;
       gap: 24px;
-      background: white;
-      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(17, 24, 43, 0.96), rgba(24, 35, 61, 0.96));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       padding: 24px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-      margin-bottom: 40px;
+      box-shadow: var(--shadow);
       align-items: center;
     }
 
     .featured img {
       width: 100%;
       border-radius: 18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      display: block;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+    }
+
+    .featured-badge {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.14);
+      color: #86efac;
+      border: 1px solid rgba(34, 197, 94, 0.18);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 14px;
     }
 
     .featured h3 {
-      margin-top: 0;
+      margin: 0 0 12px;
       font-size: 30px;
     }
 
     .featured p {
-      color: #475569;
-      line-height: 1.7;
-      margin-bottom: 16px;
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 17px;
     }
 
     .insights {
+      margin: 0 0 18px;
       padding-left: 20px;
-      color: #334155;
-      line-height: 1.8;
+      color: var(--text);
+      line-height: 1.85;
+    }
+
+    .insights li {
+      margin-bottom: 6px;
     }
 
     .grid {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      margin-bottom: 40px;
     }
 
     .card {
-      background: white;
-      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(17, 24, 43, 0.98), rgba(24, 35, 61, 0.98));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       padding: 22px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: var(--shadow);
+      transition: 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-tag {
+      display: inline-block;
+      width: fit-content;
+      font-size: 13px;
+      font-weight: bold;
+      border-radius: 999px;
+      padding: 8px 12px;
+      margin-bottom: 14px;
+    }
+
+    .tag-excel {
+      background: rgba(34, 197, 94, 0.14);
+      color: #86efac;
+      border: 1px solid rgba(34, 197, 94, 0.18);
+    }
+
+    .tag-powerbi {
+      background: rgba(250, 204, 21, 0.14);
+      color: #fde68a;
+      border: 1px solid rgba(250, 204, 21, 0.18);
+    }
+
+    .tag-sql {
+      background: rgba(96, 165, 250, 0.14);
+      color: #bfdbfe;
+      border: 1px solid rgba(96, 165, 250, 0.18);
+    }
+
+    .tag-tableau {
+      background: rgba(139, 92, 246, 0.14);
+      color: #ddd6fe;
+      border: 1px solid rgba(139, 92, 246, 0.18);
     }
 
     .card h3 {
-      margin-top: 0;
-      font-size: 26px;
+      margin: 0 0 10px;
+      font-size: 28px;
     }
 
     .card p {
-      color: #475569;
-      line-height: 1.7;
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 16px;
     }
 
     .card img {
       width: 100%;
-      border-radius: 14px;
-      margin: 14px 0 16px;
+      border-radius: 16px;
+      margin: 12px 0 16px;
+      display: block;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 12px 18px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: bold;
+    .card .btn {
+      margin-top: auto;
+      width: fit-content;
     }
 
-    .btn:hover {
-      background: #1d4ed8;
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
     }
 
-    .about,
-    .contact {
-      background: white;
-      border-radius: 22px;
+    .panel {
+      background: linear-gradient(135deg, rgba(17, 24, 43, 0.98), rgba(24, 35, 61, 0.98));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       padding: 28px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
-      margin-bottom: 28px;
+      box-shadow: var(--shadow);
     }
 
-    .about p,
-    .contact p {
-      color: #475569;
-      line-height: 1.8;
-      margin-bottom: 0;
+    .panel h2 {
+      margin-top: 0;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .panel p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 17px;
+    }
+
+    .links {
+      margin-top: 18px;
     }
 
     .links a {
       display: inline-block;
       margin-right: 14px;
-      margin-top: 12px;
-      color: #2563eb;
+      margin-bottom: 10px;
+      color: var(--primary);
       text-decoration: none;
       font-weight: bold;
     }
 
+    .links a:hover {
+      color: #93c5fd;
+    }
+
     .footer {
       text-align: center;
-      color: #64748b;
-      margin-top: 20px;
+      color: var(--soft);
+      margin-top: 34px;
       font-size: 14px;
     }
 
-    @media (max-width: 900px) {
-      .featured {
-        grid-template-columns: 1fr;
+    @media (max-width: 920px) {
+      .hero {
+        padding: 54px 24px;
       }
 
       .hero h1 {
-        font-size: 38px;
+        font-size: 40px;
+      }
+
+      .featured,
+      .two-col {
+        grid-template-columns: 1fr;
       }
 
       .section-title {
         font-size: 28px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p,
+      .section-subtitle,
+      .panel p,
+      .featured p,
+      .card p {
+        font-size: 16px;
       }
     }
   </style>
@@ -203,81 +425,170 @@
 <body>
   <div class="container">
     <section class="hero">
-      <h1>Hi, I'm Churchill Akah a Data Analyst</h1>
+      <div class="eyebrow">Data Analytics Portfolio</div>
+      <h1>Turn scattered data into <span class="highlight">clear decisions</span>.</h1>
       <p>
-        I turn raw, messy data into clean dashboards, actionable insights, and business-friendly reports that support smarter decisions.
+        Hi, I’m Churchill. I build dashboards and analytics projects that help teams stop guessing, spot what matters faster, and act on data with confidence. Explore my work across Excel, Power BI, SQL, and Tableau.
       </p>
-      <div class="hero-tags">
-        <span class="tag">Excel</span>
-        <span class="tag">SQL</span>
-        <span class="tag">Power BI</span>
-        <span class="tag">Tableau</span>
-        <span class="tag">Dashboard Design</span>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="powerbi-projects/">See My Projects</a>
+        <a class="btn btn-secondary" href="excel-projects/sales-dashboard/">View Featured Dashboard</a>
+      </div>
+      <div class="proof-bar">
+        <div class="proof-pill">Excel Dashboards</div>
+        <div class="proof-pill">Power BI Reports</div>
+        <div class="proof-pill">SQL Analysis</div>
+        <div class="proof-pill">Tableau Projects</div>
       </div>
     </section>
 
-    <h2 class="section-title">Featured Project</h2>
-    <section class="featured">
-      <div>
-        <img src="excel-projects/sales-dashboard/dashboard1.png" alt="Sales Dashboard Preview">
+    <section class="section">
+      <h2 class="section-title">Featured Project</h2>
+      <p class="section-subtitle">
+        Here’s a snapshot of the kind of work I do: turning raw data into a dashboard that surfaces trends, highlights performance, and makes decision-making easier.
+      </p>
+
+      <div class="featured">
+        <div>
+          <img src="excel-projects/sales-dashboard/dashboard1.png" alt="Sales Dashboard Preview">
+        </div>
+        <div>
+          <div class="featured-badge">Featured Excel Dashboard</div>
+          <h3>Sales Dashboard</h3>
+          <p>
+            Built to make sales performance easier to understand at a glance, this dashboard brings key metrics into one place so trends, top products, and customer contribution are instantly visible.
+          </p>
+          <ul class="insights">
+            <li>Highlights the top-performing products by profit</li>
+            <li>Shows where the strongest customer value is coming from</li>
+            <li>Surfaces time-based trends that support smarter action</li>
+          </ul>
+          <a class="btn btn-primary" href="excel-projects/sales-dashboard/">View Full Project</a>
+        </div>
       </div>
-      <div>
-        <h3>Sales Dashboard in Excel</h3>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Explore by Tool</h2>
+      <p class="section-subtitle">
+        Whether the goal is reporting, dashboarding, or analysis, each section below shows how I approach data through different tools.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-tag tag-excel">Excel</div>
+          <h3>Excel Projects</h3>
+          <p>
+            Dashboard builds, KPI tracking, and reporting designed to make spreadsheet data more useful and easier to act on.
+          </p>
+          <img src="excel-projects/sales-dashboard/dashboard1.png" alt="Excel Dashboard">
+          <a class="btn btn-primary" href="excel-projects/">View Excel Projects</a>
+        </div>
+
+        <div class="card">
+          <div class="card-tag tag-powerbi">Power BI</div>
+          <h3>Power BI Projects</h3>
+          <p>
+            Interactive dashboards built to help decision-makers explore trends, compare performance, and uncover insights faster.
+          </p>
+          <img src="powerbi-projects/Data_professional_survey/data-professional-survey.png" alt="Power BI Dashboard">
+          <a class="btn btn-primary" href="powerbi-projects/">View Power BI Projects</a>
+        </div>
+
+        <div class="card">
+          <div class="card-tag tag-sql">SQL</div>
+          <h3>SQL Projects</h3>
+          <p>
+            Querying, cleaning, and analysis work that turns raw tables into answers stakeholders can actually use.
+          </p>
+          <a class="btn btn-primary" href="sql-projects/">View SQL Projects</a>
+        </div>
+
+        <div class="card">
+          <div class="card-tag tag-tableau">Tableau</div>
+          <h3>Tableau Projects</h3>
+          <p>
+            Visual analytics and interactive dashboards designed to make complex information easier to explore and understand.
+          </p>
+          <a class="btn btn-primary" href="tableau-projects/">View Tableau Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Power BI Project Previews</h2>
+      <p class="section-subtitle">
+        A closer look at some of my Power BI dashboard work, from workforce reporting to survey-based insight generation.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-tag tag-powerbi">Power BI</div>
+          <img src="powerbi-projects/Data_professional_survey/data-professional-survey.png" alt="Data Professional Survey Dashboard">
+          <h3>Data Professional Survey</h3>
+          <p>
+            A dashboard exploring salary patterns, preferred tools, job roles, and industry trends across data professionals.
+          </p>
+          <a class="btn btn-primary" href="powerbi-projects/Data_professional_survey/">View Project</a>
+        </div>
+
+        <div class="card">
+          <div class="card-tag tag-powerbi">Power BI</div>
+          <img src="powerbi-projects/hr_attrition_dashboard/hr-attrition-dashboard-1.png" alt="HR Attrition Dashboard">
+          <h3>HR Attrition Dashboard</h3>
+          <p>
+            A workforce analytics dashboard focused on employee attrition, turnover patterns, and HR decision support.
+          </p>
+          <a class="btn btn-primary" href="powerbi-projects/hr_attrition_dashboard/">View Project</a>
+        </div>
+
+        <div class="card">
+          <div class="card-tag tag-powerbi">Power BI</div>
+          <img src="powerbi-projects/hr_dashboard/hr-dashboard-1.png" alt="HR Dashboard">
+          <h3>HR Dashboard</h3>
+          <p>
+            A clean reporting dashboard built to show workforce structure, employee distribution, and HR performance metrics.
+          </p>
+          <a class="btn btn-primary" href="powerbi-projects/hr_dashboard/">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div class="panel">
+        <h2>About Me</h2>
         <p>
-          A visual Excel dashboard built to analyze sales performance, highlight top-performing products, track customer contribution, and identify profit trends across segments.
+          Hi, I’m Churchill, a data analyst who enjoys turning messy data into clear, decision-ready insights.
         </p>
-        <ul class="insights">
-          <li>Identified the top 5 most profitable products</li>
-          <li>Highlighted key customer contribution patterns</li>
-          <li>Showed profit trends by age group and time period</li>
-        </ul>
-        <a class="btn" href="excel-projects/sales-dashboard/">View Full Project</a>
-      </div>
-    </section>
-
-    <h2 class="section-title">Portfolio Overview</h2>
-    <section class="grid">
-      <div class="card">
-        <h3>Excel Projects</h3>
-        <p>Sales dashboards, KPI tracking, and business reporting in Excel.</p>
-        <img src="excel-projects/sales-dashboard/dashboard1.png" alt="Excel Dashboard">
-        <a class="btn" href="excel-projects/">View Excel Projects</a>
+        <p>
+          I build dashboards and analyses that don’t just look good, but actually help people understand what’s going on, why it matters, and what to do next. Whether it’s cleaning raw data, exploring trends, or designing intuitive dashboards, my focus is always on making information simple, useful, and easy to act on.
+        </p>
+        <p>
+          I combine analytical thinking, clean design, and business context to create work that goes beyond surface-level reporting. Instead of overwhelming you with numbers, I help you see the story behind the data and use it to make smarter decisions with confidence.
+        </p>
+        <p>
+          I care about clarity, structure, and usability. That means building dashboards people actually use, reports that answer real questions, and solutions that bring real value, not just visuals.
+        </p>
+        <p>
+          At the end of the day, my goal is simple: turn your data into something you can understand, trust, and use to move forward.
+        </p>
       </div>
 
-      <div class="card">
-        <h3>Power BI Projects</h3>
-        <p>Interactive dashboards and visual reporting projects built for decision-making.</p>
-        <a class="btn" href="powerbi-projects/">View Power BI Projects</a>
-      </div>
-
-      <div class="card">
-        <h3>SQL Projects</h3>
-        <p>Data cleaning, querying, and analysis projects focused on business insight generation.</p>
-        <a class="btn" href="sql-projects/">View SQL Projects</a>
-      </div>
-    </section>
-
-    <section class="about">
-      <h2>About Me</h2>
-      <p>
-        I build analytics projects that make data easier to understand and easier to use. My portfolio focuses on dashboards, reporting, and data analysis with tools like Excel, SQL, Power BI, and Tableau.
-      </p>
-    </section>
-
-    <section class="contact">
-      <h2>Let’s Connect</h2>
-      <p>
-        I’m open to data analytics opportunities, freelance work, and collaborations.
-      </p>
-      <div class="links">
-        <a href="https://github.com/lkristarr">GitHub</a>
-        <a href="https://www.linkedin.com/in/Churchill-Akah">LinkedIn</a>
-        <a href="mailto:Iykejchurchill@gmail.com">Email</a>
+      <div class="panel">
+        <h2>Let’s Connect</h2>
+        <p>
+          Looking for someone who can turn data into something clearer, more useful, and easier to act on? Explore the portfolio and connect with me below.
+        </p>
+        <div class="links">
+          <a href="https://github.com/lkristarr">GitHub</a>
+          <a href="https://linkedin.com/in/churchill-akah">LinkedIn</a>
+          <a href="mailto:Iykejchurchill@gmail.com">Email</a>
+        </div>
       </div>
     </section>
 
     <div class="footer">
-      © 2026 My Data Analytics Portfolio
+      © 2026 Churchill Data Analytics Portfolio
     </div>
   </div>
 </body>
